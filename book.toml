@@ -4,3 +4,5 @@ language = "en"
 multilingual = false
 src = "src"
 title = "cloud-wills"
+[build]
+build-dir = "docs"
