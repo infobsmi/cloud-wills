@@ -145,6 +145,8 @@
                     <main>
                         <h1 id="介绍"><a class="header" href="#介绍">介绍</a></h1>
 <p>本书是讲不同云计算的上云实践</p>
+<h2 id="许可协议"><a class="header" href="#许可协议">许可协议</a></h2>
+<p>本书采用AGPL 3.0 协议发布，任何人可以自由修改，发布本书内容</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="腾讯云计算"><a class="header" href="#腾讯云计算">腾讯云计算</a></h1>
 <p>腾讯公司是中国的一家企业，主要经营业务是互联网信息产业。云计算是该公司旗下的重要经营项目。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="cloudshell"><a class="header" href="#cloudshell">CloudShell</a></h1>
@@ -170,6 +172,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
