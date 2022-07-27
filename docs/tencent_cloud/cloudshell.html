@@ -147,6 +147,38 @@
 /home/cloudshell/data</p>
 <p>你可以把文件放到这个目录下面</p>
 <p>腾讯会给你保存 120天，你可以随时访问这个cloudshell功能，自动续期120天</p>
+<h2 id="配置ssh-脚本让你快速利用cloudshell-访问管理服务器"><a class="header" href="#配置ssh-脚本让你快速利用cloudshell-访问管理服务器">配置ssh 脚本，让你快速利用cloudshell 访问管理服务器</a></h2>
+<p>现在介绍给大家，如何配置 ssh脚本，把cloudshell 做为一个堡垒机工具，让你管理你的服务器。</p>
+<p>首先我们创建一个脚本，名字为 pssh, 放到/home/cloudshell/data/pssh</p>
+<p>内容如下</p>
+<pre><code class="language-bash">#!/bin/sh
+set -ex
+export SSHCLI=&quot;ssh -v -p 3809 -i ./id_rsa -o StrictHostKeyChecking=no&quot;
+case $@ in
+
+webserver)
+$SSHCLI root@webserver.baidu.host.com
+;;
+
+help)
+echo &quot;you can type like webserver&quot;
+;;
+
+*)
+echo &quot;type help to see help&quot;
+;;
+
+
+esac
+</code></pre>
+<p>上面的实例，我们有一台webserver.baidu.host.com的机器，它的ssh端口为3809， 我们写的这个bash脚本，定义了几个参数，当你输入的参数是缩写webserver的时候，就会连接到这个host的ssh</p>
+<p>比如你执行</p>
+<pre><code class="language-bash">./pssh webserver
+
+</code></pre>
+<p>到这里，你就连上了。</p>
+<p>如果你需要加更多的主机，你只需要更新上面的代码，复制多一份webserver) 就行了</p>
+<p>记得改成其他名字，不能出现冲突。</p>
 
                     </main>
 
