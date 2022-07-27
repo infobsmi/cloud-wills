@@ -1,0 +1,6 @@
+[book]
+authors = ["cnmade"]
+language = "en"
+multilingual = false
+src = "src"
+title = "cloud-wills"
