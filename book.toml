@@ -6,3 +6,10 @@ src = "src"
 title = "cloud-wills"
 [build]
 build-dir = "docs"
+
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]
+
+[output.html]
+additional-css=["toc.css"]
